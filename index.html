@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mohammed Qayyum | Software Engineer Portfolio</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700;800&family=Work+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        mono: ['"JetBrains Mono"', 'monospace'],
+                        sans: ['"Work Sans"', 'sans-serif'],
+                    },
+                    colors: {
+                        indigo: {
+                            50: '#eef2ff',
+                            100: '#e0e7ff',
+                            500: '#6366f1',
+                            600: '#4f46e5',
+                            700: '#4338ca',
+                            950: '#070714',
+                        },
+                        slate: {
+                            900: '#090d16',
+                            950: '#02040a',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Modern scrollbar configuration */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #02040a;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #1e293b;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #4f46e5;
+        }
+
+        /* Glassmorphism panel base styling */
+        .glass-panel {
+            background: rgba(9, 13, 22, 0.7);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.04);
+        }
+
+        /* Bento-box interactive hover transition and glow variables */
+        .bento-card {
+            position: relative;
+            transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.4s ease, box-shadow 0.4s ease;
+            overflow: hidden;
+        }
+        .bento-card:hover {
+            transform: translateY(-4px);
+            border-color: rgba(99, 102, 241, 0.35);
+            box-shadow: 0 12px 30px -10px rgba(99, 102, 241, 0.15);
+        }
+
+        /* Ambient light tracking overlay */
+        .glow-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            background: radial-gradient(circle 120px at var(--mouse-x, 0) var(--mouse-y, 0), rgba(99, 102, 241, 0.1), transparent 80%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        .bento-card:hover .glow-overlay {
+            opacity: 1;
+        }
+    </style>
+</head>
+<body class="bg-slate-950 text-slate-100 font-sans antialiased selection:bg-indigo-600 selection:text-white">
+
+    <header class="fixed top-0 w-full z-50 glass-panel border-b border-slate-900">
+        <div class="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
+            <a href="#" class="font-mono font-bold text-lg tracking-tight bg-gradient-to-r from-indigo-400 to-violet-400 bg-clip-text text-transparent">
+                &lt;MQ /&gt;
+            </a>
+            <nav class="hidden md:flex items-center gap-8 text-sm font-mono text-slate-400">
+                <a href="#about" class="hover:text-indigo-400 transition-colors">&lt;about&gt;</a>
+                <a href="#skills" class="hover:text-indigo-400 transition-colors">&lt;skills&gt;</a>
+                <a href="#projects" class="hover:text-indigo-400 transition-colors">&lt;projects&gt;</a>
+                <a href="#education" class="hover:text-indigo-400 transition-colors">&lt;education&gt;</a>
+                <a href="#contact" class="hover:text-indigo-400 transition-colors">&lt;contact&gt;</a>
+            </nav>
+            <a href="#contact" class="px-4 py-2 rounded-lg text-xs font-mono font-semibold bg-indigo-600 hover:bg-indigo-700 text-white transition-all shadow-md shadow-indigo-600/15">
+                ping_me
+            </a>
+        </div>
+    </header>
+
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 pt-24 pb-16 space-y-6">
+        
+        <!-- SECTION: Hero & Bio Grid -->
+        <section id="about" class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            
+            <!-- Tile 1: Master Hero Banner (col-span-2) -->
+            <div class="bento-card glass-panel rounded-3xl p-8 md:col-span-2 flex flex-col justify-between min-h-[380px]">
+                <div class="glow-overlay"></div>
+                <div class="space-y-4 relative z-10">
+                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-950/60 border border-indigo-500/20 text-xs font-mono text-indigo-300">
+                        <span class="w-2 h-2 rounded-full bg-indigo-400 animate-pulse"></span>
+                        student_status: seeking_internships
+                    </div>
+                    
+                    <div class="flex flex-col-reverse sm:flex-row sm:items-center justify-between gap-6">
+                        <div>
+                            <h1 class="font-mono text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-white">
+                                Mohammed Qayyum
+                            </h1>
+                            <p class="text-lg text-indigo-300 font-mono mt-2 min-h-[28px]">
+                                <span id="typing-text" class="border-r-2 border-indigo-400 pr-1"></span>
+                            </p>
+                        </div>
+                        
+                        <!-- Premium profile picture placeholder with clean fallback initials -->
+                        <div class="relative w-24 h-24 rounded-2xl overflow-hidden bg-slate-900 border border-slate-800 flex-shrink-0 group">
+                            <img src="photo.jpg" alt="Mohammed Qayyum" class="w-full h-full object-cover relative z-10" onerror="this.style.display='none';">
+                            <div class="absolute inset-0 flex items-center justify-center bg-gradient-to-tr from-slate-950 to-indigo-950 text-indigo-400 font-mono font-bold text-2xl z-0">
+                                MQ
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <p class="text-slate-300 max-w-2xl leading-relaxed text-sm sm:text-base">
+                        I am a Computer Science and Engineering student passionate about building efficient and user-friendly software solutions. I have hands-on experience with full-stack technologies, and enjoy solving challenging programming problems to grow as a software developer.
+                    </p>
+                </div>
+
+                <div class="flex flex-wrap items-center gap-4 mt-8 relative z-10 font-mono text-xs">
+                    <a href="#projects" class="flex items-center gap-2 px-5 py-3 rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white font-semibold transition-all">
+                        view_projects() <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                    </a>
+                    <a href="https://www.linkedin.com/in/mohd-qayyum-97b87528a/" target="_blank" class="flex items-center gap-2 px-5 py-3 rounded-xl bg-slate-900 hover:bg-slate-850 text-slate-300 border border-slate-800 transition-all">
+                        linkedin <i data-lucide="linkedin" class="w-4 h-4"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Tile 2: Academic Statistics Card -->
+            <div id="education" class="bento-card glass-panel rounded-3xl p-8 flex flex-col justify-between">
+                <div class="glow-overlay"></div>
+                <div class="relative z-10 space-y-6">
+                    <div class="flex justify-between items-start">
+                        <div class="p-3 rounded-2xl bg-indigo-950/50 border border-indigo-500/20 text-indigo-400">
+                            <i data-lucide="graduation-cap" class="w-6 h-6"></i>
+                        </div>
+                        <div class="text-right">
+                            <span class="block text-[10px] font-mono uppercase text-slate-500">Academic Score</span>
+                            <span class="text-lg font-mono font-bold text-emerald-400">CGPA 7.0/10</span>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <h3 class="font-mono text-lg font-bold text-white">Education Journey</h3>
+                        <p class="text-sm text-indigo-300 font-mono mt-1">B.Tech in CSE (Final Year)</p>
+                        <p class="text-xs text-slate-400 mt-2 leading-relaxed">
+                            Geethanjali College of Engineering and Technology
+                        </p>
+                    </div>
+                </div>
+
+                <div class="border-t border-slate-900 pt-4 mt-6 relative z-10 flex items-center justify-between text-xs font-mono text-slate-500">
+                    <span>Graduation:</span>
+                    <span class="font-bold text-slate-300">Class of 2027</span>
+                </div>
+            </div>
+
+        </section>
+
+        <!-- SECTION: Skills Cloud & Stats Grid -->
+        <section id="skills" class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            
+            <!-- Tile 3: Grouped Skills Inventory (col-span-2) -->
+            <div class="bento-card glass-panel rounded-3xl p-8 md:col-span-2">
+                <div class="glow-overlay"></div>
+                <div class="relative z-10 space-y-6">
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <h3 class="font-mono text-lg font-bold text-white">Technical Arsenal</h3>
+                            <p class="text-xs text-slate-400 mt-1">Classified index of frameworks, environments, and toolchains</p>
+                        </div>
+                        <i data-lucide="cpu" class="w-5 h-5 text-indigo-400"></i>
+                    </div>
+
+                    <!-- Skills Categorization -->
+                    <div class="space-y-4">
+                        <div>
+                            <span class="text-[10px] font-mono uppercase tracking-wider text-slate-500 block mb-2">Languages & Frameworks</span>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="px-3 py-1 rounded-lg bg-slate-900 border border-slate-800 text-xs font-mono text-slate-300 hover:border-indigo-400 transition-colors">Java</span>
+                                <span class="px-3 py-1 rounded-lg bg-slate-900 border border-slate-800 text-xs font-mono text-slate-300 hover:border-indigo-400 transition-colors">JavaScript</span>
+                                <span class="px-3 py-1 rounded-lg bg-slate-900 border border-slate-800 text-xs font-mono text-slate-300 hover:border-indigo-400 transition-colors">SQL</span>
+                                <span class="px-3 py-1 rounded-lg bg-slate-900 border border-slate-800 text-xs font-mono text-slate-300 hover:border-indigo-400 transition-colors">React.js</span>
+                                <span class="px-3 py-1 rounded-lg bg-slate-900 border border-slate-800 text-xs font-mono text-slate-300 hover:border-indigo-400 transition-colors">Node.js</span>
+                                <span class="px-3 py-1 rounded-lg bg-slate-900 border border-slate-800 text-xs font-mono text-slate-300 hover:border-indigo-400 transition-colors">Express.js</span>
+                            </div>
+                        </div>
+
+                        <div>
+                            <span class="text-[10px] font-mono uppercase tracking-wider text-slate-500 block mb-2">Databases, APIs & Tools</span>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="px-3 py-1 rounded-lg bg-slate-900 border border-slate-800 text-xs font-mono text-slate-300 hover:border-indigo-400 transition-colors">MongoDB</span>
+                                <span class="px-3 py-1 rounded-lg bg-slate-900 border border-slate-800 text-xs font-mono text-slate-300 hover:border-indigo-400 transition-colors">MySQL</span>
+                                <span class="px-3 py-1 rounded-lg bg-slate-900 border border-slate-800 text-xs font-mono text-slate-300 hover:border-indigo-400 transition-colors">REST APIs</span>
+                                <span class="px-3 py-1 rounded-lg bg-slate-900 border border-slate-800 text-xs font-mono text-slate-300 hover:border-indigo-400 transition-colors">JDBC</span>
+                                <span class="px-3 py-1 rounded-lg bg-slate-900 border border-slate-800 text-xs font-mono text-slate-300 hover:border-indigo-400 transition-colors">Git & GitHub</span>
+                                <span class="px-3 py-1 rounded-lg bg-slate-900 border border-slate-800 text-xs font-mono text-slate-300 hover:border-indigo-400 transition-colors">VS Code</span>
+                            </div>
+                        </div>
+
+                        <div>
+                            <span class="text-[10px] font-mono uppercase tracking-wider text-slate-500 block mb-2">CS Fundamentals & Soft Skills</span>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="px-3 py-1 rounded-lg bg-slate-900 border border-slate-800 text-xs font-mono text-slate-400 hover:border-indigo-400 transition-colors">OOP</span>
+                                <span class="px-3 py-1 rounded-lg bg-slate-900 border border-slate-800 text-xs font-mono text-slate-400 hover:border-indigo-400 transition-colors">DSA</span>
+                                <span class="px-3 py-1 rounded-lg bg-slate-900 border border-slate-800 text-xs font-mono text-slate-400 hover:border-indigo-400 transition-colors">DBMS</span>
+                                <span class="px-3 py-1 rounded-lg bg-slate-900 border border-slate-800 text-xs font-mono text-slate-400 hover:border-indigo-400 transition-colors">Operating Systems</span>
+                                <span class="px-3 py-1 rounded-lg bg-slate-900 border border-slate-800 text-xs font-mono text-slate-400 hover:border-indigo-400 transition-colors">Problem Solving</span>
+                                <span class="px-3 py-1 rounded-lg bg-slate-900 border border-slate-800 text-xs font-mono text-slate-400 hover:border-indigo-400 transition-colors">Team Collaboration</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tile 4: Custom Interactive Task Planner / Sandbox -->
+            <div class="bento-card glass-panel rounded-3xl p-8 flex flex-col justify-between">
+                <div class="glow-overlay"></div>
+                <div class="relative z-10 space-y-4">
+                    <div class="flex items-center justify-between">
+                        <span class="text-[10px] font-mono uppercase text-slate-500">Live Workspace Widget</span>
+                        <i data-lucide="terminal" class="w-4 h-4 text-emerald-400"></i>
+                    </div>
+                    <h3 class="font-mono text-sm font-bold text-white">Interactive Task Dashboard</h3>
+                    <p class="text-xs text-slate-400">Simulate deployment sequences of my stacks:</p>
+                    
+                    <div class="space-y-2 mt-4">
+                        <button onclick="runWidgetAction('java')" class="w-full flex items-center justify-between p-2.5 rounded-xl bg-slate-900 hover:bg-indigo-950/40 border border-slate-800 hover:border-indigo-500/20 text-left text-xs font-mono text-slate-300 transition-all">
+                            <span>Compile Java System</span>
+                            <span class="text-[10px] text-indigo-400">Run</span>
+                        </button>
+                        <button onclick="runWidgetAction('ai')" class="w-full flex items-center justify-between p-2.5 rounded-xl bg-slate-900 hover:bg-indigo-950/40 border border-slate-800 hover:border-indigo-500/20 text-left text-xs font-mono text-slate-300 transition-all">
+                            <span>Execute Agent Pipeline</span>
+                            <span class="text-[10px] text-indigo-400">Run</span>
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="bg-black/40 rounded-xl p-3 border border-slate-900 font-mono text-[10px] text-emerald-400/90 mt-4 h-16 overflow-y-auto" id="widget-console">
+                    Ready to execute diagnostics...
+                </div>
+            </div>
+
+        </section>
+
+        <!-- SECTION: Project Showcases -->
+        <section id="projects" class="space-y-6">
+            <div class="flex items-center justify-between">
+                <div>
+                    <h2 class="font-mono text-xl font-bold text-white">System Build Architectures</h2>
+                    <p class="text-xs text-slate-400 mt-1">A curated compilation of full-stack engineering work</p>
+                </div>
+                <span class="text-xs font-mono px-3 py-1 rounded-full bg-indigo-950 border border-indigo-500/30 text-indigo-300">
+                    projects_count: 03
+                </span>
+            </div>
+
+            <!-- Projects Grid System -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                
+                <!-- Project Card 1: Enterprise AI Ecosystem -->
+                <div class="bento-card glass-panel rounded-3xl p-6 flex flex-col justify-between min-h-[380px]">
+                    <div class="glow-overlay"></div>
+                    <div class="space-y-4 relative z-10">
+                        <div class="flex items-center justify-between">
+                            <span class="text-[9px] font-mono uppercase bg-slate-900 border border-slate-800 px-2 py-1 rounded text-slate-400">Enterprise Orchestration</span>
+                            <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
+                        </div>
+                        <h3 class="font-mono text-lg font-bold text-white hover:text-indigo-400 transition-colors">Enterprise AI Agent Ecosystem</h3>
+                        <p class="text-xs text-slate-300 leading-relaxed">
+                            A highly complex production-ready orchestration model containing multi-agent workflows (Receptionist, Executive Assistant), utilizing native Voice Conversational copilot models.
+                        </p>
+                    </div>
+
+                    <div class="space-y-4 relative z-10">
+                        <div class="flex flex-wrap gap-1">
+                            <span class="text-[9px] font-mono px-2 py-0.5 rounded bg-indigo-950/40 text-indigo-300 border border-indigo-500/10">Python</span>
+                            <span class="text-[9px] font-mono px-2 py-0.5 rounded bg-indigo-950/40 text-indigo-300 border border-indigo-500/10">LangChain</span>
+                            <span class="text-[9px] font-mono px-2 py-0.5 rounded bg-indigo-950/40 text-indigo-300 border border-indigo-500/10">FastAPI</span>
+                            <span class="text-[9px] font-mono px-2 py-0.5 rounded bg-indigo-950/40 text-indigo-300 border border-indigo-500/10">Docker</span>
+                            <span class="text-[9px] font-mono px-2 py-0.5 rounded bg-indigo-950/40 text-indigo-300 border border-indigo-500/10">ChromaDB</span>
+                        </div>
+                        
+                        <div class="flex items-center justify-between text-xs font-mono border-t border-slate-900 pt-3">
+                            <span class="text-slate-500">Demo: coming_soon</span>
+                            <span class="text-indigo-400 hover:underline flex items-center gap-1 cursor-pointer">
+                                Internal System <i data-lucide="lock" class="w-3.5 h-3.5"></i>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project Card 2: LMS -->
+                <div class="bento-card glass-panel rounded-3xl p-6 flex flex-col justify-between min-h-[380px]">
+                    <div class="glow-overlay"></div>
+                    <div class="space-y-4 relative z-10">
+                        <div class="flex items-center justify-between">
+                            <span class="text-[9px] font-mono uppercase bg-slate-900 border border-slate-800 px-2 py-1 rounded text-slate-400">Full-Stack Application</span>
+                            <span class="w-2 h-2 rounded-full bg-indigo-400"></span>
+                        </div>
+                        <h3 class="font-mono text-lg font-bold text-white hover:text-indigo-400 transition-colors">Library Management System</h3>
+                        <p class="text-xs text-slate-300 leading-relaxed">
+                            A complete administrative portal enabling modern operations for tracking physical inventories, controlling roles, issuing books, and processing transactions securely.
+                        </p>
+                    </div>
+
+                    <div class="space-y-4 relative z-10">
+                        <div class="flex flex-wrap gap-1">
+                            <span class="text-[9px] font-mono px-2 py-0.5 rounded bg-indigo-950/40 text-indigo-300 border border-indigo-500/10">Java</span>
+                            <span class="text-[9px] font-mono px-2 py-0.5 rounded bg-indigo-950/40 text-indigo-300 border border-indigo-500/10">JDBC</span>
+                            <span class="text-[9px] font-mono px-2 py-0.5 rounded bg-indigo-950/40 text-indigo-300 border border-indigo-500/10">MySQL</span>
+                            <span class="text-[9px] font-mono px-2 py-0.5 rounded bg-indigo-950/40 text-indigo-300 border border-indigo-500/10">Maven</span>
+                        </div>
+                        
+                        <div class="flex items-center justify-between text-xs font-mono border-t border-slate-900 pt-3">
+                            <span class="text-slate-500">Demo: coming_soon</span>
+                            <a href="https://github.com/qayyummohd/library-management-system" target="_blank" class="text-indigo-400 hover:underline flex items-center gap-1">
+                                github_repo <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project Card 3: AI Nutrition Agent -->
+                <div class="bento-card glass-panel rounded-3xl p-6 flex flex-col justify-between min-h-[380px]">
+                    <div class="glow-overlay"></div>
+                    <div class="space-y-4 relative z-10">
+                        <div class="flex items-center justify-between">
+                            <span class="text-[9px] font-mono uppercase bg-slate-900 border border-slate-800 px-2 py-1 rounded text-slate-400">Artificial Intelligence</span>
+                            <span class="w-2 h-2 rounded-full bg-violet-400"></span>
+                        </div>
+                        <h3 class="font-mono text-lg font-bold text-white hover:text-indigo-400 transition-colors">AI Nutrition Agent</h3>
+                        <p class="text-xs text-slate-300 leading-relaxed">
+                            An smart dietary agent offering conversational meal recommendations, caloric breakdowns, and targeted health schedules built over proprietary Generative AI nodes.
+                        </p>
+                    </div>
+
+                    <div class="space-y-4 relative z-10">
+                        <div class="flex flex-wrap gap-1">
+                            <span class="text-[9px] font-mono px-2 py-0.5 rounded bg-indigo-950/40 text-indigo-300 border border-indigo-500/10">Python</span>
+                            <span class="text-[9px] font-mono px-2 py-0.5 rounded bg-indigo-950/40 text-indigo-300 border border-indigo-500/10">Streamlit</span>
+                            <span class="text-[9px] font-mono px-2 py-0.5 rounded bg-indigo-950/40 text-indigo-300 border border-indigo-500/10">OpenAI API</span>
+                            <span class="text-[9px] font-mono px-2 py-0.5 rounded bg-indigo-950/40 text-indigo-300 border border-indigo-500/10">Tailwind CSS</span>
+                        </div>
+                        
+                        <div class="flex items-center justify-between text-xs font-mono border-t border-slate-900 pt-3">
+                            <span class="text-slate-500">Demo: coming_soon</span>
+                            <span class="text-slate-500 flex items-center gap-1">
+                                Repo Private <i data-lucide="eye-off" class="w-3.5 h-3.5"></i>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- SECTION: Direct Gateway & Profiles -->
+        <section id="contact" class="pt-4">
+            <div class="bento-card glass-panel rounded-3xl p-8 md:p-12">
+                <div class="glow-overlay"></div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center relative z-10">
+                    <div class="space-y-6">
+                        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-950 border border-indigo-500/20 text-xs font-mono text-indigo-300">
+                            ping_method: email_network
+                        </div>
+                        <h2 class="font-mono text-2xl md:text-3xl font-extrabold text-white">Let's compile code together.</h2>
+                        <p class="text-slate-300 text-sm leading-relaxed max-w-md">
+                            I am actively seeking software engineering internships where I can integrate full-stack technologies, deploy algorithms, and help optimize development cycles.
+                        </p>
+                        
+                        <!-- Contact Points -->
+                        <div class="space-y-3 font-mono text-xs">
+                            <a href="mailto:qayyummohd@example.com" class="flex items-center gap-3 text-indigo-400 hover:text-indigo-300 transition-colors">
+                                <i data-lucide="mail" class="w-4 h-4"></i> qayyummohd@example.com
+                            </a>
+                            <div class="flex items-center gap-3 text-slate-400">
+                                <i data-lucide="map-pin" class="w-4 h-4"></i> Hyderabad, Telangana, India
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Direct Email Trigger Form Card -->
+                    <div class="bg-slate-900/60 p-6 rounded-2xl border border-slate-800 space-y-4">
+                        <span class="text-[10px] font-mono uppercase text-indigo-400">Communication Node</span>
+                        <h4 class="font-mono text-sm font-bold text-white">Direct Message Link</h4>
+                        <p class="text-slate-400 text-xs leading-relaxed">
+                            My direct mailbox is fully optimized and open for engineering invites. Fire over an invitation via your preferred client.
+                        </p>
+                        <a href="mailto:qayyummohd@example.com" class="w-full inline-block text-center py-3 rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white font-mono font-bold text-xs transition-all">
+                            initialize_email()
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Footer Section -->
+                <div class="border-t border-slate-900 mt-12 pt-8 flex flex-col sm:flex-row items-center justify-between text-xs font-mono text-slate-500 gap-4">
+                    <p>&copy; 2026 Mohammed Qayyum. Index template 23R11A05L7.</p>
+                    <div class="flex gap-6">
+                        <a href="https://github.com/qayyummohd" target="_blank" class="hover:text-indigo-400">github</a>
+                        <a href="https://www.linkedin.com/in/mohd-qayyum-97b87528a/" target="_blank" class="hover:text-indigo-400">linkedin</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <script>
+        // Initialize SVG Icons from Lucide CDNs
+        lucide.createIcons();
+
+        // 1. Interactive Ambient Mouse Light for Bento Cards
+        document.querySelectorAll('.bento-card').forEach(card => {
+            card.addEventListener('mousemove', e => {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                card.style.setProperty('--mouse-x', `${x}px`);
+                card.style.setProperty('--mouse-y', `${y}px`);
+            });
+        });
+
+        // 2. High-performance Typewriter Animation for the Headline
+        const titlePhrases = [
+            "Computer Science Student",
+            "Full-Stack Developer",
+            "Generative AI Builder",
+            "Problem Solver"
+        ];
+        let activePhraseIdx = 0;
+        let activeCharIdx = 0;
+        let isDeletingChar = false;
+        const targetOutputElement = document.getElementById("typing-text");
+
+        function processTypewriterAnimation() {
+            const currentString = titlePhrases[activePhraseIdx];
+            
+            if (isDeletingChar) {
+                targetOutputElement.textContent = currentString.substring(0, activeCharIdx - 1);
+                activeCharIdx--;
+            } else {
+                targetOutputElement.textContent = currentString.substring(0, activeCharIdx + 1);
+                activeCharIdx++;
+            }
+
+            let transitionSpeed = 80;
+            if (isDeletingChar) {
+                transitionSpeed /= 1.8; // delete faster
+            }
+
+            if (!isDeletingChar && activeCharIdx === currentString.length) {
+                transitionSpeed = 1600; // Pause at end of text
+                isDeletingChar = true;
+            } else if (isDeletingChar && activeCharIdx === 0) {
+                isDeletingChar = false;
+                activePhraseIdx = (activePhraseIdx + 1) % titlePhrases.length;
+                transitionSpeed = 300; // Pause before rewriting
+            }
+
+            setTimeout(processTypewriterAnimation, transitionSpeed);
+        }
+
+        // Initialize typewriter sequence after page is ready
+        document.addEventListener("DOMContentLoaded", () => {
+            processTypewriterAnimation();
+        });
+
+        // 3. Mini Interactive Sandbox Widget function
+        function runWidgetAction(type) {
+            const consoleBox = document.getElementById('widget-console');
+            consoleBox.innerHTML = '';
+            
+            if (type === 'java') {
+                consoleBox.innerHTML = '<span class="text-slate-400">&gt; mvn compile exec:java...</span><br>';
+                setTimeout(() => {
+                    consoleBox.innerHTML += '<span class="text-indigo-400">&gt; Connecting MySQL Database... SUCCESS</span><br>';
+                }, 400);
+                setTimeout(() => {
+                    consoleBox.innerHTML += '<span class="text-emerald-400">&gt; LMS Build complete (JVM virtual state configured).</span>';
+                }, 850);
+            } else if (type === 'ai') {
+                consoleBox.innerHTML = '<span class="text-slate-400">&gt; python agent_orchestrator.py...</span><br>';
+                setTimeout(() => {
+                    consoleBox.innerHTML += '<span class="text-violet-400">&gt; Embedding vectors synced to ChromaDB.</span><br>';
+                }, 400);
+                setTimeout(() => {
+                    consoleBox.innerHTML += '<span class="text-emerald-400">&gt; Multi-agent routing ready for context payload.</span>';
+                }, 850);
+            }
+        }
+    </script>
+</body>
+</html>
+```
+eof
